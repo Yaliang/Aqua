@@ -24,3 +24,11 @@ function playAudio(source,time) {		// function to create audio element after tim
 		myPlayer.jPlayer('play');
 	}, time);
 }
+
+function showTimer() {				// function to make animation and show the interface to setting time
+	$("#home").slideUp();
+	$("#name").animate({
+		fontSize: '30px'
+	},500);
+	$("#timer").show();
+}
