@@ -1,3 +1,8 @@
+/*
+ * Author: Yaliang Wang
+ * Last update: Sep 29, 2014, 5:25 PM
+ *
+ */
 $(document).ready(function(){
    $("#jquery_jplayer_0").jPlayer({
       ready: function () {
@@ -31,4 +36,19 @@ function showTimer() {				// function to make animation and show the interface t
 		fontSize: '30px'
 	},500);
 	$("#timer").show();
+}
+
+function timerDisplay() {			// function to display the rest time
+	var hours = $("#hours").val();
+	var mins = $("#mins").val();
+	var t = setTimeout(function() {
+		if (mins>0) {
+			$("#mins").val(mins-1);
+			timerDisplay();
+		} else if (hours>0) {
+			$("#hours").val(hours-1);
+			$("#mins").val(60);
+			timerDisplay();
+		}
+	},60*1000);
 }
