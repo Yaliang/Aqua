@@ -38,17 +38,39 @@ function showTimer() {				// function to make animation and show the interface t
 	$("#timer").show();
 }
 
-function timerDisplay() {			// function to display the rest time
-	var hours = $("#hours").val();
-	var mins = $("#mins").val();
+function restTimeCountDown() {			// function to count down the rest time
+	var hours = parseInt($("#restHours").text());
+	var mins = parseInt($("#restMins").text());
 	var t = setTimeout(function() {
 		if (mins>0) {
-			$("#mins").val(mins-1);
-			timerDisplay();
+			mins = mins-1;
+			$("#restMins").text(mins.toString());
+			restTimeCountDown();
 		} else if (hours>0) {
-			$("#hours").val(hours-1);
-			$("#mins").val(60);
-			timerDisplay();
+			hours = hours-1;
+			$("#restHours").text(hours.toString());
+			$("#restMins").text("60");
+			restTimeCountDown();
 		}
 	},60*1000);
+}
+
+function secondTwinkle() {			// function to twinkle the colon every second
+	var t = setTimeout(function() {
+		$("#secondColon").fadeOut(100);
+		$("#secondColon").fadeIn(100);
+		secondTwinkle();
+	},1000);
+}
+
+function timerStart() {				//function to start the timer
+	$("#name").animate({
+		fontSize: '100px'
+	},500);
+	$("#timer").hide();
+	$("#restTime").show();
+	$("#restHours").text($("#hours").val());
+	$("#restMins").text($("#mins").val());
+	restTimeCountDown();
+	secondTwinkle();
 }
