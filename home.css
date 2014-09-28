@@ -11,25 +11,28 @@
 h1{
     color: white;
     text-shadow: 2px 2px 1px lightgray;
-    font-size: 200%;
+    font-size: 100px;
 }
 
 a{
     font-size:60px;
 }
+.img_main{
+    width:60%;
+    max-width:250px;
+}
 .settings{
     position: fixed;
     bottom: 5px;
-    right: 5px;
+    right: 15px;
    
 }
 .btn-sample { 
   margin-top:30px;
   color: white; 
   background: none; 
-  border-color: white;
-  font-weight: bold;
-
+  font-weight: bolder;
+  cursor: pointer;
 } 
  
 .btn-sample:focus, 
@@ -38,7 +41,6 @@ a{
 .btn-sample.active, 
 .open .dropdown-toggle.btn-sample { 
   font-weight: bolder;
-  color: white;
   border-color: white;
   border-width: 5px;
   margin-top: 25px;
@@ -49,12 +51,8 @@ a{
     width:100%;
     text-align: center; position: relative;
 }
-body{
-    height:100%;
-    width: 100%;
-    position: absolute;
-}
-#colorChange{
+
+.colorChange{
     background-color: lightskyblue;
     animation-name: cyl;
     animation-duration: 5s;
