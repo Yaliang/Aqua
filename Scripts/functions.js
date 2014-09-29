@@ -67,7 +67,7 @@ function timerStart() {				//function to start the timer
 	$("#name").animate({
 		fontSize: '100px'
 	},500);
-	$("#timer").slideUp();
+	$("#timer").hide();
 	$("#restTime").show();
 	$("#restHours").text($("#hours").val());
 	$("#restMins").text($("#mins").val());
