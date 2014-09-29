@@ -58,7 +58,7 @@ function restTimeCountDown() {			// function to count down the rest time
 function timerStart() {				//function to start the timer
 	$("#timer").slideUp();
 	$("#restTime").show();
-	$("#restHours").text($("hours").val());
-	$("#restMins").text($("mins").val());
+	$("#restHours").text($("#hours").val());
+	$("#restMins").text($("#mins").val());
 	restTimeCountDown();
 }
