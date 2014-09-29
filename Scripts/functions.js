@@ -38,17 +38,27 @@ function showTimer() {				// function to make animation and show the interface t
 	$("#timer").show();
 }
 
-function timerDisplay() {			// function to display the rest time
-	var hours = parseInt($("#hours").val());
-	var mins = parseInt($("#mins").val());
+function restTimeCountDown() {			// function to count down the rest time
+	var hours = parseInt($("#restHours").text());
+	var mins = parseInt($("#restMins").text());
 	var t = setTimeout(function() {
 		if (mins>0) {
-			$("#mins").val(mins-1);
-			timerDisplay();
+			mins = mins-1;
+			$("#mins").text(mins.toString());
+			restTimeCountDown();
 		} else if (hours>0) {
-			$("#hours").val(hours-1);
-			$("#mins").val(60);
-			timerDisplay();
+			hours = hours-1;
+			$("#hours").text(hours.toString());
+			$("#mins").text("60");
+			restTimeCountDown();
 		}
 	},60*1000);
+}
+
+function timerStart() {				//function to start the timer
+	$("#timer").slideUp();
+	$("#restTime").show();
+	$("#restHours").text($("hours").val());
+	$("#restMins").text($("mins").val());
+	restTimeCountDown();
 }
