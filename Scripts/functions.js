@@ -39,8 +39,8 @@ function showTimer() {				// function to make animation and show the interface t
 }
 
 function timerDisplay() {			// function to display the rest time
-	var hours = $("#hours").val();
-	var mins = $("#mins").val();
+	var hours = parseInt($("#hours").val());
+	var mins = parseInt($("#mins").val());
 	var t = setTimeout(function() {
 		if (mins>0) {
 			$("#mins").val(mins-1);
