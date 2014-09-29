@@ -55,10 +55,19 @@ function restTimeCountDown() {			// function to count down the rest time
 	},60*1000);
 }
 
+function secondTwinkle() {			// function to twinkle the colon every second
+	var t = setTimeout(function() {
+		$("#secondColon").fadeOut(200);
+		$("#secondColon").fadeIn(200);
+		secondTwinkle();
+	},1000);
+}
+
 function timerStart() {				//function to start the timer
 	$("#timer").slideUp();
 	$("#restTime").show();
 	$("#restHours").text($("#hours").val());
 	$("#restMins").text($("#mins").val());
 	restTimeCountDown();
+	secondTwinkle();
 }
