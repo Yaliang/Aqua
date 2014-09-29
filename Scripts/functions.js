@@ -57,13 +57,16 @@ function restTimeCountDown() {			// function to count down the rest time
 
 function secondTwinkle() {			// function to twinkle the colon every second
 	var t = setTimeout(function() {
-		$("#secondColon").fadeOut(200);
-		$("#secondColon").fadeIn(200);
+		$("#secondColon").fadeOut(100);
+		$("#secondColon").fadeIn(100);
 		secondTwinkle();
 	},1000);
 }
 
 function timerStart() {				//function to start the timer
+	$("#name").animate({
+		fontSize: '100px'
+	},500);
 	$("#timer").slideUp();
 	$("#restTime").show();
 	$("#restHours").text($("#hours").val());
