@@ -8,94 +8,35 @@
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <script src="./Scripts/jquery-1.9.1.min.js"></script>
     <script src="./Scripts/bootstrap.min.js"></script>
-    <script src="./Scripts/functions.js"></script>
-    <script src="./Scripts/jquery.timeTo.min.js"></script>
-    <link href="./home.css" rel="stylesheet">
+    <script src="./Scripts/jquery.jplayer.min.js"></script>
+    <script src="./Scripts/functions.js"></script>    
     <link href="./Content/bootstrap.min.css" rel="stylesheet">
-    <link href="./Content/timeTo.css" type="text/css" rel="stylesheet"/>
+    <link href="./home.css" rel="stylesheet">
     </head > 
-    <body>
-        <div class="container-fluid" id='colorChange'>
-        <h1 style=" color: white;
-        text-shadow: 2px 2px 1px darkgray;
-        font-size: 150px">ZZZ</h1>
-        <img src="./pics/sheep.png" width="250px" height="250px" />
-        <br />
-        <br />
-        <div style="display: none" id="countdown-1" class="timeTo timeTo-black" style="font-family: Verdana, sans-serif; font-size: 28px;"><div class="first" style="width:26px; height:30px;"><ul style="left:3px; top:-30px"><li>0</li><li>0</li></ul></div><div style="width:26px; height:30px;"><ul style="left:3px; top:-30px"><li>0</li><li>0</li></ul></div><span>:</span><div class="first" style="width:26px; height:30px;"><ul style="left:3px; top:-30px"><li>0</li><li>0</li></ul></div><div style="width:26px; height:30px;"><ul style="left:3px; top:-30px"><li>1</li><li>1</li></ul></div><span>:</span><div class="first" style="width:26px; height:30px;"><ul style="left: 3px; top: -30px;" class=""><li>2</li><li>2</li></ul></div><div style="width:26px; height:30px;"><ul style="left: 3px; top: -30px;" class=""><li>9</li><li>9</li></ul></div></div>        
-        <a href="#" class="btn btn-sample btn-lg" id="napTime" value = "Play">Nap Time</a>
-        <div class="settings" id='colorChange'>
+    <body onload="window.focus();" class="colorChange">
+        <div class="container-fluid">
+        <h1 id="name">ZZZ</h1>
+	<div id="home">
+            <img class="img_main" src="./pics/sheep.png"/>
+	    </br>
+       	    <div id="nap_time" onclick="showTimer()" class="btn btn-lg btn-sample">Nap Time</div>
+	</div>
+	<div id="timer" style="display:none">
+	    <div class="input-group" style="margin:80px 0px 60px 0px">
+  		<input id="hours" type="text" class="form-control" value="0"><span class="input-group-addon">hour</span>
+		<input id="mins" type="text" class="form-control" value="15"><span class="input-group-addon">min</span>
+	    </div>	    
+	    <button type="button" id="startButton" data-loading-text="Loading..." class="btn btn-lg btn-primary" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); $('#startButton').hide(); timerStart()">Start</button>
+	    
+	</div>
+	<div id="restTime" style="display:none">
+		<h2 style="margin:50px 0px 60px 0px; color:white; font-size:80px"><span id="restHours"></span><span id="secondColon"> : </span><span id="restMins"></span></h2>
+		<button type="button" id="endButton" data-loading-text="Loading..." class="btn btn-lg btn-primary" autocomplete="off" onclick="location.reload();">End</button>
+	</div>
+	<div class="settings">
             <a href="#"><img src="./pics/gear.png" width="40px" height="40px" /></a>
         </div>
         </div>
-        <audio id="audio" src="http://dev.interactive-creation-works.net/1/1.ogg" ></audio>
-        <script>
-            /* Function for making the timer appear and play music*/
-            $(document).ready(function(){
-                    $("#napTime").click(function(){
-                    document.getElementById("countdown-1").style.display = "block"; // set to display timer
-                    setTimeout('play()', 3000); // play music
-                    $("#countdown-1").timeTo(3, function(){ alert('Countdown finished'); }) // Timer goes for three seconds
-                })
-            })
-            function play(){
-                var audio = document.getElementById('audio');
-                audio.play();
-            }
-            
-            // Will probably want to get rid of eventually
-            $(document).ready(function() {
-                $("countdown-1").stop(); // wonky code to stop it from initially sounding an alarm 
-            });
-            
-        /***
-* Set timer countdown in seconds with callback
-*/
-        /**
-        $('#countdown-1').timeTo(3, function(){
-            alert('Coubtdown finished');
-        });
-    */
-
-        var date = getRelativeDate(20);
-
-        document.getElementById('date-str').innerHTML = date.toString();
-
-        /**
-* Set timer countdown to specyfied date
-*/
-        $('#countdown-2').timeTo(date);
-
-        date = getRelativeDate(7, 9);
-        document.getElementById('date2-str').innerHTML = date.toString();
-
-        /**
-* Set theme and captions
-*/
-        $('#countdown-3').timeTo({
-            timeTo: date,
-            displayDays: 2,
-            theme: "black",
-            displayCaptions: true,
-            fontSize: 48,
-            captionSize: 14
-        });
-
-        /**
-* Simple digital clock
-*/
-        $('#clock-1').timeTo();
-
-        function getRelativeDate(days, hours, minutes){
-            var date = new Date(Date.now() + 60000 /* milisec */ * 60 /* minutes */ * 24 /* hours */ * days /* days */);
-
-            date.setHours(hours || 0);
-            date.setMinutes(minutes || 0);
-            date.setSeconds(0);
-
-            return date;
-        }
-    
-        </script>
+	<div id="jquery_jplayer_0"></div>
     </body>
 </html>
