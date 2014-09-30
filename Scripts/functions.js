@@ -1,6 +1,6 @@
 /*
  * Author: Yaliang Wang
- * Last update: Sep 29, 2014, 5:25 PM
+ * Last update: Sep 30, 2014, 13:25
  *
  */
 $(document).ready(function(){
@@ -17,11 +17,11 @@ $(document).ready(function(){
    });
 });
 
-function playAudio(source,time) {		// function to create audio element after time (ms) delay, HTML5 required, doesn't work on iOS
+function playAudio(source,time) {		// function to play audio element after time (ms) delay, HTML5 required
 	var myPlayer = $("#jquery_jplayer_0");
 	myPlayer.jPlayer('play');
 	// for case MP3
-	var t =  setTimeout(function() {	// callback function to create the element and autoplay the source media
+	var t =  setTimeout(function() {	// switch the media source
 		myPlayer.jPlayer("setMedia", {
 			mp3: source
 		});
