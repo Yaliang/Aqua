@@ -45,11 +45,11 @@ function restTimeCountDown() {			// function to count down the rest time
 	var t = setTimeout(function() {
 		if (secs>0) {
 			secs = secs-1;
-			$("#restSecs").text(("0"+secs.toString().slice(-2));
+			$("#restSecs").text(("0"+secs.toString()).slice(-2));
 			restTimeCountDown();
 		} else if (mins>0) {
 			mins = mins-1;
-			$("#restMins").text(("0"+mins.toString().slice(-2));
+			$("#restMins").text(("0"+mins.toString()).slice(-2));
 			$("#restSecs").text("59");
 			restTimeCountDown();
 		} else if (hours>0) {
