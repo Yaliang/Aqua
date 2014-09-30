@@ -41,18 +41,25 @@ function showTimer() {				// function to make animation and show the interface t
 function restTimeCountDown() {			// function to count down the rest time
 	var hours = parseInt($("#restHours").text());
 	var mins = parseInt($("#restMins").text());
+	var secs = parseInt($("#restSecs").text());
 	var t = setTimeout(function() {
-		if (mins>0) {
+		if (secs>0) {
+			secs = secs-1;
+			$("#restSecs").text(("0"+secs.toString().slice(-2));
+			restTimeCountDown();
+		} else if (mins>0) {
 			mins = mins-1;
-			$("#restMins").text(mins.toString());
+			$("#restMins").text(("0"+mins.toString().slice(-2));
+			$("#restSecs").text("59");
 			restTimeCountDown();
 		} else if (hours>0) {
 			hours = hours-1;
-			$("#restHours").text(hours.toString());
-			$("#restMins").text("60");
+			$("#restHours").text(("0"+hours.toString()).slice(-2));
+			$("#restMins").text("59");
+			$("#restSecs").text("59");
 			restTimeCountDown();
 		}
-	},60*1000);
+	},1000);
 }
 
 function secondTwinkle() {			// function to twinkle the colon every second
@@ -64,13 +71,18 @@ function secondTwinkle() {			// function to twinkle the colon every second
 }
 
 function timerStart() {				//function to start the timer
+	var napTime = ($('#hours').val()*60+$('#mins').val()*1)*60;
+	var napSecs = napTime % 60;
+	var napMins = napTime % 3600;
+	var napHours = Math.floor( napTime / 3600);
 	$("#name").animate({
 		fontSize: '100px'
 	},500);
 	$("#timer").hide();
 	$("#restTime").show();
-	$("#restHours").text($("#hours").val());
-	$("#restMins").text($("#mins").val());
+	$("#restHours").text(("0"+napHours.toString()).slice(-2));
+	$("#restMins").text(("0"+napMins.toString()).slice(-2));
+	$("#restSecs").text(("0"+napSecs.toString()).slice(-2))
 	restTimeCountDown();
 	secondTwinkle();
 }
