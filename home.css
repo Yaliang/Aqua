@@ -23,7 +23,9 @@ a{
 }
 
 .countdown {
-    font-size:60%;
+    margin:50px 0px 60px 0px; 
+    color:white
+    font-size:300%;
 }
 .settings{
     position: fixed;
