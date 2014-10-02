@@ -35,6 +35,7 @@
 	</div>
 	<div class="settings">
             <a href="#"><img src="./pics/gear.png" width="40px" height="40px" /></a>
+            <link src="./pics/gear.png" href="gear.css">
         </div>
         </div>
 	<div id="jquery_jplayer_0"></div>
