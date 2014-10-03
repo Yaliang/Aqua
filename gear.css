@@ -1,8 +1,3 @@
-/*
-/* 
-    Created on : Sep 25, 2014, 11:53:23 AM
-    Author     : Melanie
-*/
 
 *{
     font-family: 'Lobster', cursive;
@@ -20,12 +15,6 @@ a{
 .img_main{
     width:60%;
     max-width:250px;
-}
-
-.countdown {
-    margin:50px 0px 60px 0px; 
-    color:white;
-    font-size:13vw;
 }
 .settings{
     position: fixed;
@@ -68,6 +57,16 @@ a{
     -webkit-animation-duration: 5s;
     -webkit-animation-direction: alternate;
     -webkit-animation-iteration-count: infinite;
+}
+
+.gendercheck{
+    ("[name='gender']").bootstrapSwitch();
+    ('input[name="gendercheck"]').bootstrapSwitch('data-off-text', Male, true);
+    ('input[name="gendercheck"]').bootstrapSwitch('data-on-text', Female, true);
+}
+
+.age{
+    width: 70%
 }
 
 @keyframes cyl{

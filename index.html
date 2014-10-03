@@ -26,17 +26,19 @@
   		<input id="hours" type="text" class="form-control" value="0"><span class="input-group-addon">hour</span>
 		<input id="mins" type="text" class="form-control" value="15"><span class="input-group-addon">min</span>
 	    </div>	    
-	    <button type="button" id="startButton" data-loading-text="Loading..." class="btn btn-lg btn-primary" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); $('#startButton').hide(); timerStart()">Start</button>
+	    <button type="button" id="startButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); $('#startButton').hide(); timerStart()">Start</button>
 	    
 	</div>
 	<div id="restTime" style="display:none">
-		<h2 style="margin:50px 0px 60px 0px; color:white; font-size:80px"><span id="restHours"></span><span id="secondColon"> : </span><span id="restMins"></span></h2>
-		<button type="button" id="endButton" data-loading-text="Loading..." class="btn btn-lg btn-primary" autocomplete="off" onclick="location.reload();">End</button>
+		<div class="countdown"><span id="restHours"></span><span id="secondColon0"> : </span><span id="restMins"></span><span id="secondColon1"> : </span><span id="restSecs"></span></div>
+		<button type="button" id="endButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="location.reload();">End</button>
 	</div>
 	<div class="settings">
             <a href="#"><img src="./pics/gear.png" width="40px" height="40px" /></a>
+            <link src="./pics/gear.png" href="gear.css">
         </div>
         </div>
 	<div id="jquery_jplayer_0"></div>
     </body>
 </html>
+
