@@ -78,7 +78,7 @@ function timerStart() {				//function to start the timer
 	var napMins = Math.floor( napTime / 60) % 60;
 	var napHours = Math.floor( napTime / 3600);
 	$("#name").animate({
-		fontSize: '100px'
+		fontSize: '31vw'
 	},500);
 	$("#timer").hide();
 	$("#restTime").show();
