@@ -33,7 +33,7 @@ function playAudio(source,time) {		// function to play audio element after time 
 function showTimer() {				// function to make animation and show the interface to setting time
 	$("#home").slideUp();
 	$("#name").animate({
-		fontSize: '30px'
+		fontSize: '23vw'
 	},500);
 	$("#timer").show();
 }

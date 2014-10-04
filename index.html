@@ -21,12 +21,14 @@
 	    </br>
        	    <div id="nap_time" onclick="showTimer()" class="btn btn-lg btn-sample">Nap Time</div>
 	</div>
-	<div id="timer" style="display:none">
-	    <div class="input-group" style="margin:80px 0px 60px 0px">
+	<div id="timer" style="display:none; margin:60px 0px 00px 0px">
+	    <div class="input-group" style="margin-bottom:60px; display:none">
   		<input id="hours" type="text" class="form-control" value="0"><span class="input-group-addon">hour</span>
 		<input id="mins" type="text" class="form-control" value="15"><span class="input-group-addon">min</span>
-	    </div>	    
-	    <button type="button" id="startButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); $('#startButton').hide(); timerStart()">Start</button>
+	    </div>
+	    <button type="button" id="powerNapStart" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="$('#hours').val('0'); $('#mins').val('10'); playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); timerStart()">Power Nap: 10 mins</button>
+	    <button type="button" id="fullNapStart" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="$('#hours').val('0'); $('#mins').val('30'); playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); timerStart()">Full Nap: 30 mins</button>
+	    <button style="display:none" type="button" id="startButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); timerStart()">Start</button>
 	    
 	</div>
 	<div id="restTime" style="display:none">
