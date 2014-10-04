@@ -33,6 +33,7 @@ function playAudio(source,time) {		// function to play audio element after time 
 function showTimer() {				// function to make animation and show the interface to setting time
 	$("#home").slideUp();
 	$("#name").animate({
+		fontSize: '66px',
 		fontSize: '23vw'
 	},500);
 	$("#timer").show();
@@ -78,6 +79,7 @@ function timerStart() {				//function to start the timer
 	var napMins = Math.floor( napTime / 60) % 60;
 	var napHours = Math.floor( napTime / 3600);
 	$("#name").animate({
+		fontSize: '100px',
 		fontSize: '31vw'
 	},500);
 	$("#timer").hide();
