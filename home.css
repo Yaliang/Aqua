@@ -21,6 +21,8 @@ a{
 .img_main{
     width:60%;
     max-width:250px;
+    margin-top: 0px;
+    margin-bottom: 25px;
 }
 
 .countdown {
@@ -36,7 +38,8 @@ a{
    
 }
 .btn-sample { 
-  margin-top:30px;
+  margin-top:6px;
+  margin-bottom:6px;
   color: white; 
   background: none; 
   font-weight: bolder;
@@ -50,10 +53,12 @@ a{
 .btn-sample:active, 
 .btn-sample.active, 
 .open .dropdown-toggle.btn-sample { 
+  color: #333;
   font-weight: bolder;
   border-color: white;
   border-width: 5px;
-  margin-top: 25px;
+  margin-top: 1px;
+  margin-bottom: 1px;
 } 
 
 .container-fluid{

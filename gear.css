@@ -59,12 +59,6 @@ a{
     -webkit-animation-iteration-count: infinite;
 }
 
-.gendercheck{
-    ("[name='gender']").bootstrapSwitch();
-    ('input[name="gendercheck"]').bootstrapSwitch('data-off-text', Male, true);
-    ('input[name="gendercheck"]').bootstrapSwitch('data-on-text', Female, true);
-}
-
 .age{
     width: 70%
 }

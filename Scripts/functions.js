@@ -4,17 +4,30 @@
  *
  */
 $(document).ready(function(){
-   $("#jquery_jplayer_0").jPlayer({
-      ready: function () {
-	 $(this).jPlayer("setMedia", {
-	    mp3: "http://m.onlineclock.net/silent.mp3"
-	 });
-      },
-      swfPath: "./Scripts",
-      solution: "flash, html",
-      supplied: "mp3",
-      loop: true
-   });
+	if (localStorage["ops"] == undefined) {
+		var ops = ["#op1","#op3"];
+		localStorage["ops"]=JSON.stringify(ops);
+	}
+	var ops = JSON.parse(localStorage["ops"]);
+	$("#op-group").children().each(function() {
+		$(this).hide();
+	})
+	for (var i = 0; i < ops.length; i++) {
+		$("#set > #set-group >"+ops[i]).addClass("active");
+		$("#op-group > "+ops[i]).show();
+	};
+
+	$("#jquery_jplayer_0").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				mp3: "http://m.onlineclock.net/silent.mp3"
+			});
+		},
+		swfPath: "./Scripts",
+		solution: "flash, html",
+		supplied: "mp3",
+		loop: true
+	});
 });
 
 function playAudio(source,time) {		// function to play audio element after time (ms) delay, HTML5 required
@@ -73,8 +86,9 @@ function secondTwinkle() {			// function to twinkle the colon every second
 	},1000);
 }
 
-function timerStart() {				//function to start the timer
-	var napTime = ($('#hours').val()*60+$('#mins').val()*1)*60;
+function countdownStart(mins) {				//function to start countdown
+	playAudio('./Content/ts_music.mp3',mins*60*1000);
+	var napTime = mins*60;
 	var napSecs = napTime % 60;
 	var napMins = Math.floor( napTime / 60) % 60;
 	var napHours = Math.floor( napTime / 3600);
@@ -89,4 +103,30 @@ function timerStart() {				//function to start the timer
 	$("#restSecs").text(("0"+napSecs.toString()).slice(-2))
 	restTimeCountDown();
 	secondTwinkle();
+}
+function revealSettings(){
+    $("#timer").hide();
+    $("#home").hide();
+    $("#restTime").hide();
+    $("#settings").hide();
+    $("#set").show();
+}
+
+function hidesettings(){
+	var buttonOpArray = ["#op1","#op2","#op3","#op4","#op5","#op6","#op7"];
+    $("#timer").show();
+    $("#home").hide();
+    $("#restTime").hide();
+    $("#settings").show();
+    $("#set").hide();
+    var newOps = [];
+    for (var i = 0; i < buttonOpArray.length; i++) {
+    	if ($("#set > #set-group >"+buttonOpArray[i]).hasClass("active")) {
+    		$("#op-group > "+buttonOpArray[i]).show();
+    		newOps.push(buttonOpArray[i]);
+    	} else {
+    		$("#op-group > "+buttonOpArray[i]).hide();
+    	}
+    };
+    localStorage['ops']=JSON.stringify(newOps);
 }
