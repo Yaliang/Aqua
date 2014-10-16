@@ -17,16 +17,20 @@
     <div class="container-fluid">
         <h1 id="name">ZZZ</h1>
         <div id="home">
-            <img class="img_main" src="./pics/sheep.png"/>
+            <img class="img_main" onclick="$('.img_main').addClass('move-left')" src="./pics/sheep.png"/>
+        
             </br>
-       	    <div id="nap_time" onclick="showTimer()" class="btn btn-lg btn-sample">Nap Time</div>
+       	    <!--<div id="nap_time" onclick="showTimer()" class="btn btn-lg btn-sample">Nap Time</div>-->
         </div>
         <div id="timer" style="display:none; margin:60px 0px 00px 0px">
             <div class="input-group" style="margin-bottom:60px; display:none">
                 <input id="hours" type="text" class="form-control" value="0"><span class="input-group-addon">hour</span>
                 <input id="mins" type="text" class="form-control" value="15"><span class="input-group-addon">min</span>
             </div>
-            <div id="op-group">
+
+            <button style="display:none" type="button" id="startButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); timerStart()">Start</button>
+        </div>
+        <div id="op-group">
                 <button type="button" id="op1" class="btn btn-lg btn-sample" onclick="countdownStart(10)">Power Nap: 10 mins</button>
                 <button type="button" id="op2" class="btn btn-lg btn-sample" onclick="countdownStart(20)">Power Nap: 20 mins</button>
                 <button type="button" id="op3" class="btn btn-lg btn-sample" onclick="countdownStart(30)">Power Nap: 30 mins</button>
@@ -35,8 +39,6 @@
                 <button type="button" id="op6" class="btn btn-lg btn-sample" onclick="countdownStart(90)">Power Nap: 90 mins</button>
                 <button type="button" id="op7" class="btn btn-lg btn-sample" onclick="countdownStart(120)">Power Nap: 120 mins</button>
             </div>
-            <button style="display:none" type="button" id="startButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); timerStart()">Start</button>
-        </div>
         <div id="restTime" style="display:none">
             <div class="countdown">
                 <span id="restHours"></span>
@@ -46,6 +48,8 @@
                 <span id="restSecs"></span>
             </div>
             <button type="button" id="endButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="location.reload();">End</button>
+            <!--<button type="button" id="backButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick=".reload();">Back</button>-->
+            
         </div>
         <div id="settings" class="settings">
             <a href="#" onClick="revealSettings()"><img src="./pics/gear.png" width="40px" height="40px" /></a>

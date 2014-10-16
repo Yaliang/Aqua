@@ -50,6 +50,7 @@ function showTimer() {				// function to make animation and show the interface t
 		fontSize: '23vw'
 	},500);
 	$("#timer").show();
+        $("#op-group").hide();
 }
 
 function restTimeCountDown() {			// function to count down the rest time
@@ -96,8 +97,9 @@ function countdownStart(mins) {				//function to start countdown
 		fontSize: '100px',
 		fontSize: '31vw'
 	},500);
-	$("#timer").hide();
+	$("#timer").show();
 	$("#restTime").show();
+        $("#op-group").hide();
 	$("#restHours").text(("0"+napHours.toString()).slice(-2));
 	$("#restMins").text(("0"+napMins.toString()).slice(-2));
 	$("#restSecs").text(("0"+napSecs.toString()).slice(-2))
@@ -110,6 +112,7 @@ function revealSettings(){
     $("#restTime").hide();
     $("#settings").hide();
     $("#set").show();
+    $("#op-group").hide();
 }
 
 function hidesettings(){
@@ -119,6 +122,8 @@ function hidesettings(){
     $("#restTime").hide();
     $("#settings").show();
     $("#set").hide();
+    $("#op-group").show();
+    
     var newOps = [];
     for (var i = 0; i < buttonOpArray.length; i++) {
     	if ($("#set > #set-group >"+buttonOpArray[i]).hasClass("active")) {
