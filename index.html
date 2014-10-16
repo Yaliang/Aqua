@@ -13,14 +13,14 @@
     <link href="./Content/bootstrap.min.css" rel="stylesheet">
     <link href="./home.css" rel="stylesheet">
 </head > 
-<body onload="window.focus();" class="colorChange">
+<body class="colorChange">
     <div class="container-fluid">
         <h1 id="name">ZZZ</h1>
         <div id="home">
             <img class="img_main" onclick="$('.img_main').addClass('move-left')" src="./pics/sheep.png"/>
         
             </br>
-       	    <!--<div id="nap_time" onclick="showTimer()" class="btn btn-lg btn-sample">Nap Time</div>-->
+       	    <!--<div id="nap_time" onclick="showTimer()" class="btn   btn-sample">Nap Time</div>-->
         </div>
         <div id="timer" style="display:none; margin:60px 0px 00px 0px">
             <div class="input-group" style="margin-bottom:60px; display:none">
@@ -28,16 +28,16 @@
                 <input id="mins" type="text" class="form-control" value="15"><span class="input-group-addon">min</span>
             </div>
 
-            <button style="display:none" type="button" id="startButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); timerStart()">Start</button>
+            <button style="display:none" type="button" id="startButton" data-loading-text="Loading..." class="btn   btn-sample" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); timerStart()">Start</button>
         </div>
         <div id="op-group">
-                <button type="button" id="op1" class="btn btn-lg btn-sample" onclick="countdownStart(10)">Power Nap: 10 mins</button>
-                <button type="button" id="op2" class="btn btn-lg btn-sample" onclick="countdownStart(20)">Power Nap: 20 mins</button>
-                <button type="button" id="op3" class="btn btn-lg btn-sample" onclick="countdownStart(30)">Power Nap: 30 mins</button>
-                <button type="button" id="op4" class="btn btn-lg btn-sample" onclick="countdownStart(40)">Power Nap: 40 mins</button>
-                <button type="button" id="op5" class="btn btn-lg btn-sample" onclick="countdownStart(60)">Power Nap: 60 mins</button>
-                <button type="button" id="op6" class="btn btn-lg btn-sample" onclick="countdownStart(90)">Power Nap: 90 mins</button>
-                <button type="button" id="op7" class="btn btn-lg btn-sample" onclick="countdownStart(120)">Power Nap: 120 mins</button>
+                <button type="button" id="op1" class="btn btn-sample" onclick="countdownStart(10)">10 mins</button>
+                <button type="button" id="op2" class="btn   btn-sample" onclick="countdownStart(20)">20 mins</button>
+                <button type="button" id="op3" class="btn   btn-sample" onclick="countdownStart(30)">30 mins</button>
+                <button type="button" id="op4" class="btn   btn-sample" onclick="countdownStart(40)">40 mins</button>
+                <button type="button" id="op5" class="btn   btn-sample" onclick="countdownStart(60)">60 mins</button>
+                <button type="button" id="op6" class="btn   btn-sample" onclick="countdownStart(90)">90 mins</button>
+                <button type="button" id="op7" class="btn   btn-sample" onclick="countdownStart(120)">120 mins</button>
             </div>
         <div id="restTime" style="display:none">
             <div class="countdown">
@@ -47,8 +47,8 @@
                 <span id="secondColon1"> : </span>
                 <span id="restSecs"></span>
             </div>
-            <button type="button" id="endButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick="location.reload();">End</button>
-            <!--<button type="button" id="backButton" data-loading-text="Loading..." class="btn btn-lg btn-sample" autocomplete="off" onclick=".reload();">Back</button>-->
+            <button type="button" id="endButton" data-loading-text="Loading..." class="btn   btn-sample" autocomplete="off" onclick="location.reload();">End</button>
+            <!--<button type="button" id="backButton" data-loading-text="Loading..." class="btn   btn-sample" autocomplete="off" onclick=".reload();">Back</button>-->
             
         </div>
         <div id="settings" class="settings">
@@ -56,29 +56,29 @@
         </div>
         <div id="set" style="display:none;margin-top:40px">
             <div id="set-group" data-toggle="buttons">
-                <label id="op1" class="btn btn-lg btn-sample">
+                <label id="op1" class="btn   btn-sample">
                     <input type="checkbox" checked>10 mins
                 </label>
-                <label id="op2" class="btn btn-lg btn-sample">
+                <label id="op2" class="btn   btn-sample">
                     <input type="checkbox" checked>20 mins
                 </label>
-                <label id="op3" class="btn btn-lg btn-sample">
+                <label id="op3" class="btn   btn-sample">
                     <input type="checkbox" checked>30 mins
                 </label>
-                <label id="op4" class="btn btn-lg btn-sample">
+                <label id="op4" class="btn   btn-sample">
                     <input type="checkbox" checked>40 mins
                 </label>
-                <label id="op5" class="btn btn-lg btn-sample">
+                <label id="op5" class="btn   btn-sample">
                     <input type="checkbox" checked>60 mins
                 </label>
-                <label id="op6" class="btn btn-lg btn-sample">
+                <label id="op6" class="btn   btn-sample">
                     <input type="checkbox" checked>90 mins
                 </label>
-                <label id="op7" class="btn btn-lg btn-sample">
+                <label id="op7" class="btn   btn-sample">
                     <input type="checkbox" checked>120 mins
                 </label>
             </div>
-            <button onClick="hidesettings()" class="btn btn-lg btn-sample">Save</button>
+            <button onClick="hidesettings()" class="btn   btn-sample">Save</button>
         </div>
     </div>
 	<div id="jquery_jplayer_0"></div>

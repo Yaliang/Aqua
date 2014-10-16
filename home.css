@@ -11,7 +11,6 @@
 h1{
     color: white;
     text-shadow: 2px 2px 1px lightgray;
-    font-size: 100px;
     font-size: 31vw;
 }
 
@@ -19,8 +18,9 @@ a{
     font-size:60px;
 }
 .img_main{
-    width:60%;
-    max-width:250px;
+    width: 40%;
+    height: 40%;
+    max-width:200px;
     margin-top: 0px;
     margin-bottom: 25px;
 }
@@ -33,8 +33,8 @@ a{
 }
 .settings{
     position: fixed;
-    bottom: 5px;
-    right: 15px;
+    bottom: 0px;
+    right: 0px;
    
 }
 .btn-sample { 
@@ -64,7 +64,7 @@ a{
 .container-fluid{
     height:100%;
     width:100%;
-    text-align: center; position: relative;
+    text-align: center;
 }
 
 .colorChange{
