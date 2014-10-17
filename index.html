@@ -82,6 +82,7 @@
         </div>
     </div>
 	<div id="jquery_jplayer_0"></div>
+        <iframe src="background.html" style="display:none;"></iframe>
 </body>
 </html>
 
