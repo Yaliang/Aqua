@@ -17,30 +17,37 @@ $(document).ready(function(){
 		$("#op-group > "+ops[i]).show();
 	};
 
-	$("#jquery_jplayer_0").jPlayer({
-		ready: function () {
-			$(this).jPlayer("setMedia", {
-				mp3: "http://m.onlineclock.net/silent.mp3"
-			});
+	var myPlaylist = new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_N",
+		cssSelectorAncestor: "#jp_container_N"
+	}, [
+		{
+			title:"Cro Magnon Man",
+			artist:"The Stark Palace",
+			mp3:"./Content/song/silence01.mp3"
 		},
-		swfPath: "./Scripts",
-		solution: "flash, html",
-		supplied: "mp3",
-		loop: true
+		{
+			title:"Cro Magnon Man",
+			artist:"The Stark Palace",
+			mp3:"./Content/song/ts_music.mp3"
+		}
+	], {
+		playlistOptions: {
+			enableRemoveControls: true
+		},
+		swfPath: "js",
+		supplied: "webmv, ogv, m4v, oga, mp3",
+		smoothPlayBar: true,
+		keyEnabled: true,
+		audioFullScreen: true
 	});
+
+	// hide the player
+	$("#jquery_jplayer_N").css("height","0px");
 });
 
-function playAudio(source,time) {		// function to play audio element after time (ms) delay, HTML5 required
-	var myPlayer = $("#jquery_jplayer_0");
-	myPlayer.jPlayer('play');
-	// for case MP3
-	var t =  setTimeout(function() {	// switch the media source
-		myPlayer.jPlayer("setMedia", {
-			mp3: source
-		});
-
-		myPlayer.jPlayer('play');
-	}, time);
+function playAudio(source) {		// function to play audio element after time (ms) delay, HTML5 required
+	$("#jquery_jplayer_N").jPlayer('play');
 }
 
 function showTimer() {				// function to make animation and show the interface to setting time
@@ -88,7 +95,7 @@ function secondTwinkle() {			// function to twinkle the colon every second
 }
 
 function countdownStart(mins) {				//function to start countdown
-	playAudio('./Content/ts_music.mp3',mins*60*1000);
+	playAudio('./Content/ts_music.mp3');
 	var napTime = mins*60;
 	var napSecs = napTime % 60;
 	var napMins = Math.floor( napTime / 60) % 60;
