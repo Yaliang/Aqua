@@ -3,6 +3,8 @@
  * Last update: Sep 30, 2014, 13:25
  *
  */
+
+var myPlaylist;
 $(document).ready(function(){
 	if (localStorage["ops"] == undefined) {
 		var ops = ["#op1","#op3"];
@@ -17,25 +19,21 @@ $(document).ready(function(){
 		$("#op-group > "+ops[i]).show();
 	};
 
-	var myPlaylist = new jPlayerPlaylist({
+	myPlaylist = new jPlayerPlaylist({
 		jPlayer: "#jquery_jplayer_N",
 		cssSelectorAncestor: "#jp_container_N"
 	}, [
 		{
-			title:"Cro Magnon Man",
-			artist:"The Stark Palace",
-			mp3:"./Content/song/silence01.mp3"
-		},
-		{
-			title:"Cro Magnon Man",
-			artist:"The Stark Palace",
-			mp3:"./Content/song/ts_music.mp3"
+			title:"ZZZ nap sleeping",
+			artist:"ZZZ nap",
+			mp3:"./Content/song/silence10.mp3",
+			poster:"./pics/sheep.png"
 		}
 	], {
 		playlistOptions: {
 			enableRemoveControls: true
 		},
-		swfPath: "js",
+		swfPath: "Script",
 		supplied: "webmv, ogv, m4v, oga, mp3",
 		smoothPlayBar: true,
 		keyEnabled: true,
@@ -43,10 +41,31 @@ $(document).ready(function(){
 	});
 
 	// hide the player
-	$("#jquery_jplayer_N").css("height","0px");
+	$("#jquery_jplayer_N").css({
+		"height":"0px",
+		"width":"0px"
+	});
+	$("#jp_poster_0").css({
+		"height":"0px",
+		"width":"0px"
+	});
 });
 
-function playAudio(source) {		// function to play audio element after time (ms) delay, HTML5 required
+function playAudio(source,mins) {		// function to play audio element after time (ms) delay, HTML5 required
+	for (var i=0; i<mins/10-1; i++) {
+		myPlaylist.add({
+			title:"ZZZ nap sleeping",
+			artist:"ZZZ nap",
+			mp3:"./Content/song/silence10.mp3",
+			poster:"./pics/sheep.png"
+		});
+	}
+	myPlaylist.add({
+		title:"Beautiful Eyes",
+		artist:"Taylor Swift",
+		mp3:"./Content/song/ts_music.mp3",
+		poster:"http://images4.fanpop.com/image/photos/24400000/Beautiful-Eyes-CD-taylor-swift-24442781-500-500.jpg"
+	});
 	$("#jquery_jplayer_N").jPlayer('play');
 }
 
@@ -95,7 +114,7 @@ function secondTwinkle() {			// function to twinkle the colon every second
 }
 
 function countdownStart(mins) {				//function to start countdown
-	playAudio('./Content/ts_music.mp3');
+	playAudio('./Content/ts_music.mp3',mins);
 	var napTime = mins*60;
 	var napSecs = napTime % 60;
 	var napMins = Math.floor( napTime / 60) % 60;
