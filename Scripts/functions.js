@@ -56,15 +56,13 @@ function playAudio(source,mins) {		// function to play audio element after time 
 		myPlaylist.add({
 			title:"ZZZ nap sleeping",
 			artist:"ZZZ nap",
-			mp3:"./Content/song/silence10.mp3",
-			poster:"./pics/sheep.png"
+			mp3:"./Content/song/silence10.mp3"
 		});
 	}
 	myPlaylist.add({
 		title:"Beautiful Eyes",
 		artist:"Taylor Swift",
-		mp3:"./Content/song/ts_music.mp3",
-		poster:"http://images4.fanpop.com/image/photos/24400000/Beautiful-Eyes-CD-taylor-swift-24442781-500-500.jpg"
+		mp3:"./Content/song/ts_music.mp3"
 	});
 	$("#jquery_jplayer_N").jPlayer('play');
 }
