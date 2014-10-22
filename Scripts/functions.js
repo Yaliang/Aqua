@@ -124,7 +124,7 @@ function countdownStart(mins) {				//function to start countdown
 }
 function revealSettings(){
     $("#timer").hide();
-    $("#home").hide();
+    $("#home").show();
     $("#restTime").hide();
     $("#settings").hide();
     $("#set").show();
@@ -134,7 +134,7 @@ function revealSettings(){
 function hidesettings(){
 	var buttonOpArray = ["#op1","#op2","#op3","#op4","#op5","#op6","#op7"];
     $("#timer").show();
-    $("#home").hide();
+    $("#home").show();
     $("#restTime").hide();
     $("#settings").show();
     $("#set").hide();
