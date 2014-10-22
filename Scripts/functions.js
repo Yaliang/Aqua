@@ -112,7 +112,7 @@ function countdownStart(mins) {				//function to start countdown
 		fontSize: '100px',
 		fontSize: '31vw'
 	},500);
-        $("#setting").hide();
+        $("#settings").hide();
 	$("#timer").show();
 	$("#restTime").show();
         $("#op-group").hide();
