@@ -52,13 +52,21 @@ $(document).ready(function(){
 });
 
 function playAudio(source,mins) {		// function to play audio element after time (ms) delay, HTML5 required
-	for (var i=0; i<mins/10-1; i++) {
-		myPlaylist.add({
-			title:"ZZZ nap sleeping",
-			artist:"ZZZ nap",
-			mp3:"./Content/song/silence10.mp3"
-		});
-	}
+       if (mins == 1) {
+            myPlaylist.setPlaylist([{
+                title:"1 min ZZZ nap sleeping",
+		artist:"1 min ZZZ nap",
+		mp3:"./Content/song/silence01.mp3"
+            }])
+        } else {
+            for (var i=0; i<mins/10-1; i++) {
+                    myPlaylist.add({
+                            title:"ZZZ nap sleeping",
+                            artist:"ZZZ nap",
+                            mp3:"./Content/song/silence10.mp3"
+                    });
+            }
+        }
 	myPlaylist.add({
 		title:"Beautiful Eyes",
 		artist:"Taylor Swift",
@@ -83,6 +91,8 @@ function restTimeCountDown(napTime) {			// function to count down the rest time
 	var t = setTimeout(function() {
             var nowTime = jQuery.now();
             var restTime = napTime - Math.floor((nowTime-initialTime)/1000);
+            if (restTime<0)
+                restTime = 0;            
             var napSecs = restTime % 60;
             var napMins = Math.floor( restTime / 60) % 60;
             var napHours = Math.floor( restTime / 3600);
@@ -132,7 +142,7 @@ function revealSettings(){
 }
 
 function hidesettings(){
-	var buttonOpArray = ["#op1","#op2","#op3","#op4","#op5","#op6","#op7"];
+    var buttonOpArray = ["#op0","#op1","#op2","#op3","#op4","#op5","#op6","#op7"];
     $("#timer").show();
     $("#home").show();
     $("#restTime").hide();

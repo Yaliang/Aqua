@@ -33,6 +33,7 @@
             <button style="display:none" type="button" id="startButton" data-loading-text="Loading..." class="btn   btn-sample" autocomplete="off" onclick="playAudio('./Content/ts_music.mp3',($('#hours').val()*60+$('#mins').val()*1)*60*1000); timerStart()">Start</button>
         </div>
         <div id="op-group">
+                <!--<button type="button" id="op0" class="btn btn-sample" onclick="countdownStart(1)">1 mins</button>-->
                 <button type="button" id="op1" class="btn btn-sample" onclick="countdownStart(10)">10 mins</button>
                 <button type="button" id="op2" class="btn   btn-sample" onclick="countdownStart(20)">20 mins</button>
                 <button type="button" id="op3" class="btn   btn-sample" onclick="countdownStart(30)">30 mins</button>
@@ -58,6 +59,9 @@
         </div>
         <div id="set" style="display:none;margin-top:40px">
             <div id="set-group" data-toggle="buttons">
+                <!--<label id="op0" class="btn   btn-sample">
+                    <input type="checkbox" checked>1 mins
+                </label>-->
                 <label id="op1" class="btn   btn-sample">
                     <input type="checkbox" checked>10 mins
                 </label>
