@@ -77,38 +77,28 @@ function showTimer() {				// function to make animation and show the interface t
         $("#op-group").hide();
 }
 
-function restTimeCountDown() {			// function to count down the rest time
-	var hours = parseInt($("#restHours").text());
-	var mins = parseInt($("#restMins").text());
-	var secs = parseInt($("#restSecs").text());
+var initialTime;
+
+function restTimeCountDown(napTime) {			// function to count down the rest time
 	var t = setTimeout(function() {
-		if (secs>0) {
-			secs = secs-1;
-			$("#restSecs").text(("0"+secs.toString()).slice(-2));
-			restTimeCountDown();
-		} else if (mins>0) {
-			mins = mins-1;
-			$("#restMins").text(("0"+mins.toString()).slice(-2));
-			$("#restSecs").text("59");
-			restTimeCountDown();
-		} else if (hours>0) {
-			hours = hours-1;
-			$("#restHours").text(("0"+hours.toString()).slice(-2));
-			$("#restMins").text("59");
-			$("#restSecs").text("59");
-			restTimeCountDown();
-		}
+            var nowTime = jQuery.now();
+            var restTime = napTime - Math.floor((nowTime-initialTime)/1000);
+            var napSecs = restTime % 60;
+            var napMins = Math.floor( restTime / 60) % 60;
+            var napHours = Math.floor( restTime / 3600);
+            $("#restHours").text(("0"+napHours.toString()).slice(-2));
+            $("#restMins").text(("0"+napMins.toString()).slice(-2));
+            $("#restSecs").text(("0"+napSecs.toString()).slice(-2));
+            secondTwinkle();
+            restTimeCountDown(napTime);
 	},1000);
 }
 
 function secondTwinkle() {			// function to twinkle the colon every second
-	var t = setTimeout(function() {
-		$("#secondColon0").fadeOut(100);
-		$("#secondColon0").fadeIn(100);
-		$("#secondColon1").fadeOut(100);
-		$("#secondColon1").fadeIn(100);
-		secondTwinkle();
-	},1000);
+	$("#secondColon0").fadeOut(100);
+	$("#secondColon0").fadeIn(100);
+	$("#secondColon1").fadeOut(100);
+	$("#secondColon1").fadeIn(100);
 }
 
 function countdownStart(mins) {				//function to start countdown
@@ -117,17 +107,19 @@ function countdownStart(mins) {				//function to start countdown
 	var napSecs = napTime % 60;
 	var napMins = Math.floor( napTime / 60) % 60;
 	var napHours = Math.floor( napTime / 3600);
+        initialTime = jQuery.now();
 	$("#name").animate({
 		fontSize: '100px',
 		fontSize: '31vw'
 	},500);
+        $("#setting").hide();
 	$("#timer").show();
 	$("#restTime").show();
         $("#op-group").hide();
 	$("#restHours").text(("0"+napHours.toString()).slice(-2));
 	$("#restMins").text(("0"+napMins.toString()).slice(-2));
 	$("#restSecs").text(("0"+napSecs.toString()).slice(-2))
-	restTimeCountDown();
+	restTimeCountDown(napTime);
 	secondTwinkle();
 }
 function revealSettings(){
