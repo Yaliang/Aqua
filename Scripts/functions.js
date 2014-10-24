@@ -52,12 +52,12 @@ $(document).ready(function(){
 });
 
 function playAudio(source,mins) {		// function to play audio element after time (ms) delay, HTML5 required
-       if (mins == 1) {
+       if (mins === 1) {
             myPlaylist.setPlaylist([{
-                title:"1 min ZZZ nap sleeping",
-		artist:"1 min ZZZ nap",
+                title:"ZZZ nap sleeping",
+		artist:"ZZZ nap",
 		mp3:"./Content/song/silence01.mp3"
-            }])
+            }]);
         } else {
             for (var i=0; i<mins/10-1; i++) {
                     myPlaylist.add({
@@ -101,6 +101,7 @@ function restTimeCountDown(napTime) {			// function to count down the rest time
             $("#restSecs").text(("0"+napSecs.toString()).slice(-2));
             secondTwinkle();
             restTimeCountDown(napTime);
+            $("#jquery_jplayer_N").jPlayer('play');
 	},1000);
 }
 
