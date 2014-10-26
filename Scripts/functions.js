@@ -10,7 +10,12 @@ $(document).ready(function(){
 		var ops = ["#op1","#op3"];
 		localStorage["ops"]=JSON.stringify(ops);
 	}
+        if (localStorage["song"] == undefined) {
+                var song = ["Happy"];
+                localStorage["song"]=JSON.stringify(song);
+        }
 	var ops = JSON.parse(localStorage["ops"]);
+        var song = JSON.parse(localStorage["song"]);
 	$("#op-group").children().each(function() {
 		$(this).hide();
 	})
@@ -18,6 +23,7 @@ $(document).ready(function(){
 		$("#set > #set-group >"+ops[i]).addClass("active");
 		$("#op-group > "+ops[i]).show();
 	};
+        $("#set > #song-group > #"+song).addClass("active");
 
 	myPlaylist = new jPlayerPlaylist({
 		jPlayer: "#jquery_jplayer_N",
@@ -70,7 +76,7 @@ function playAudio(source,mins) {		// function to play audio element after time 
 	myPlaylist.add({
 		title:"Beautiful Eyes",
 		artist:"Taylor Swift",
-		mp3:"./Content/song/ts_music.mp3"
+		mp3:source
 	});
 	$("#jquery_jplayer_N").jPlayer('play');
 }
@@ -113,7 +119,8 @@ function secondTwinkle() {			// function to twinkle the colon every second
 }
 
 function countdownStart(mins) {				//function to start countdown
-	playAudio('./Content/ts_music.mp3',mins);
+        var song = JSON.parse(localStorage["song"]);
+	playAudio('./Content/song/'+song+'.mp3',mins);
 	var napTime = mins*60;
 	var napSecs = napTime % 60;
 	var napMins = Math.floor( napTime / 60) % 60;
@@ -135,7 +142,8 @@ function countdownStart(mins) {				//function to start countdown
 }
 function revealSettings(){
     $("#timer").hide();
-    $("#home").show();
+    $("#name").hide();
+    $("#home").hide();
     $("#restTime").hide();
     $("#settings").hide();
     $("#set").show();
@@ -144,8 +152,10 @@ function revealSettings(){
 
 function hidesettings(){
     var buttonOpArray = ["#op0","#op1","#op2","#op3","#op4","#op5","#op6","#op7"];
+    var songArray = ["Angry","Calm","Fierce","Happy"];
     $("#timer").show();
     $("#home").show();
+    $("#name").show();
     $("#restTime").hide();
     $("#settings").show();
     $("#set").hide();
@@ -161,4 +171,10 @@ function hidesettings(){
     	}
     };
     localStorage['ops']=JSON.stringify(newOps);
+    for (var i=0; i < songArray.length; i++) {
+        if ($("#set > #song-group > #"+songArray[i]).hasClass("active")) {
+            localStorage['song']=JSON.stringify(songArray[i]);
+            break;
+        }
+    }
 }
