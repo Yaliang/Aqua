@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <h1 id="name">ZZZ</h1>
         <div id="home">
-            <img class="img_main" onclick="$('.img_main').addClass('move-left')" src="./pics/sheep.png"/>
+            <img class="img_main" onclick="$('.img_main').addClass('move-left'); var t=setTimeout(function() {$('.img_main').removeClass('move-left');},2000);" src="./pics/sheep.png"/>
         
             </br>
        	    <!--<div id="nap_time" onclick="showTimer()" class="btn   btn-sample">Nap Time</div>-->
@@ -58,7 +58,8 @@
             <a href="#" onClick="revealSettings()"><img src="./pics/gear.png" width="40px" height="40px" /></a>
         </div>
         <div id="set" style="display:none;margin-top:20px">
-            <div id="set-group" data-toggle="buttons">
+            <h4>Timer Settings</h4>
+            <div id="set-group" data-toggle="buttons" style="margin-top:10px;">
                 <label id="op0" class="btn   btn-sample">
                     <input type="checkbox" checked>1 mins
                 </label>
@@ -84,6 +85,22 @@
                     <input type="checkbox" checked>120 mins
                 </label>
             </div>
+            <h4>Song Settings</h4>
+            <div id="song-group" class="btn-group" data-toggle="buttons" style="margin-top:10px">
+                <label id="Fierce" class="btn btn-sample">
+                  <input type="radio" name="options">Fierce
+                </label>
+                <label id="Happy" class="btn btn-sample">
+                  <input type="radio" name="options">Happy
+                </label>
+                <label id="Calm" class="btn btn-sample">
+                  <input type="radio" name="options">Calm
+                </label>
+                <label id="Angry" class="btn btn-sample">
+                  <input type="radio" name="options">Angry
+                </label>
+            </div>
+            </br>
             <button onClick="hidesettings()" class="btn   btn-sample">Save</button>
         </div>
     </div>
